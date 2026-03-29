@@ -1,0 +1,28 @@
+---
+- name: Configuration du serveur Web pour BOA
+  hosts: serveurs_web
+  become: yes  # Utiliser les droits root
+
+  tasks:
+    - name: 1. Mettre à jour le cache des paquets (apt update)
+      apt:
+        update_cache: yes
+
+    - name: 2. Installer le serveur Nginx
+      apt:
+        name: nginx
+        state: present
+
+    - name: 3. Créer une page d'accueil sécurisée
+      copy:
+        content: "<h1>Portail Sécurisé BOA - Mandrindra</h1>"
+        dest: /var/www/html/index.html
+        owner: www-data
+        group: www-data
+        mode: '0644'  # Lecture pour tous, écriture uniquement pour le propriétaire
+
+    - name: 4. S'assurer que Nginx est démarré
+      service:
+        name: nginx
+        state: started
+        enabled: yes

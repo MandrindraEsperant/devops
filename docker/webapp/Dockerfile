@@ -1,0 +1,10 @@
+FROM ubuntu:18.04
+LABEL maintainer="Eizytraining"
+RUN apt-get update
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y nginx git
+RUN rm -rf /var/www/html/*
+RUN git clone https://github.com/MandrindraEsperant/static-website.git /var/www/html
+# ADD static-website-example /var/www/html/
+EXPOSE 80
+
+ENTRYPOINT ["/usr/sbin/nginx", "-g", "daemon off;"]

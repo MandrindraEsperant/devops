@@ -1,0 +1,4 @@
+total 5
+-rwxrwxrwx 1 mandrindra mandrindra   0 mars  29 08:54 document.txt
+-rwxrwxrwx 1 mandrindra mandrindra 108 mars  27 15:18 inventory.ini
+-rwxrwxrwx 1 mandrindra mandrindra 753 mars  27 16:02 setup_web.yml

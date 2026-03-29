@@ -1,0 +1,21 @@
+Vagrant.configure("2") do |config|
+  # === VM pour Qualif ===
+  config.vm.define "qualif" do |qualif|
+    qualif.vm.box = "ubuntu/focal64"        # Base de la VM : Ubuntu 20.04
+    qualif.vm.hostname = "qualif.local"     # Nom d’hôte de la VM
+    qualif.vm.network "private_network", ip: "192.168.56.101"  # IP privée pour accéder à la VM
+    qualif.vm.provider "virtualbox" do |vb|
+      vb.memory = "1024"                     # Mémoire de 1 Go pour cette VM
+    end
+  end
+
+  # === VM pour Prod ===
+  config.vm.define "prod" do |prod|
+    prod.vm.box = "ubuntu/focal64"          # Base Ubuntu 20.04
+    prod.vm.hostname = "prod.local"         # Nom d’hôte
+    prod.vm.network "private_network", ip: "192.168.56.102"  # IP privée
+    prod.vm.provider "virtualbox" do |vb|
+      vb.memory = "2048"                     # Mémoire de 2 Go pour Prod (plus lourd)
+    end
+  end
+end
