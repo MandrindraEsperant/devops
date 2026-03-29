@@ -1,0 +1,21 @@
+#!/bin/bash
+
+echo "Avant"
+echo "Nombre de paramètres : $#"
+echo "Paramètres : $*"
+echo "Paramètres :1= $1, 2= $2, 3= $3, 4= $4, 5= $5"
+echo "Premier paramètre : $1"
+echo "Deuxième paramètre : $2"
+echo "Troisième paramètre : $3"
+echo "Quatrième paramètre : $4"
+echo "Cinquième paramètre : $5"
+set alfed marion josephine charlotte #redifinie les paramètres
+echo "Après set alfed marion josephine charlotte"
+echo "Nombre de paramètres : $#"
+echo "Paramètres : $*"
+echo "Paramètres :1= $1, 2= $2, 3= $3, 4= $4, 5= $5"
+echo "Premier paramètre : $1"
+echo "Deuxième paramètre : $2"
+echo "Troisième paramètre : $3"     
+echo "Quatrième paramètre : $4"
+echo "Cinquième paramètre : $5"
